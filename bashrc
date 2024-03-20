@@ -26,10 +26,6 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
-
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
@@ -42,11 +38,6 @@ fi
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -87,9 +78,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -99,11 +87,6 @@ alias z='cd ..'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -121,8 +104,6 @@ if ! shopt -oq posix; then
 fi
 
 alias lh='ls -lhrt'
-alias ubup='sudo apt update && sudo apt upgrade' #ubuntu update
-alias dbox='cd /home/luga/Dropbox' # easy access external HD
 alias cpdir='pwd | xclip' # copy the address of current dir to xclip (need to install xclip)
 alias tarrasque='ssh -p65222 luga@201.17.19.72'
 cp-tarrasque(){
@@ -139,14 +120,5 @@ mkcdir ()
 export DISPLAY=:0 # save on the new bashrc
 export TERM=screen-256color
 
-# Access tarrasque's personal jupyter notebook server
-alias tarrasque_jupnb='ssh -L 8000:localhost:8888 luga@201.17.19.72 -p 65222'
-# Call for jupyter notebook, copy the token and access the jupyter in http://localhost:8000
-
-# PS1 from lxplus
-#export PS1="\e[0;32m[\u]\e[0;0m@[\h]\e[0;31m{\w}\n\\$ \[$(tput sgr0)\]"
-
 # Start with screen (Windows 10)
-#mkdir ~/.screen && chmod 700 ~/.screen
 export SCREENDIR=~/.screen
-#screen -S Screen
