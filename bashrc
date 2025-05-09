@@ -105,9 +105,9 @@ fi
 
 alias lh='ls -lhrt'
 alias cpdir='pwd | xclip' # copy the address of current dir to xclip (need to install xclip)
-alias tarrasque='ssh -p65222 luga@201.17.19.72'
+alias tarrasque='ssh -p65222 luga@200.152.124.48'
 cp-tarrasque(){
-	scp -rP 65222 luga@201.17.19.72:"$1" "$2"
+	scp -rP 65222 luga@200.152.124.48:"$1" "$2"
 }
 PS1="┌─[\[\e[33m\]\h\[\e[0m\]][\[\e[32m\]\w\[\e[0m\]]\n└─╼ "
 
